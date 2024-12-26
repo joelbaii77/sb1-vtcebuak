@@ -1,0 +1,64 @@
+---
+import FooterSection from './footer/FooterSection.astro';
+import FooterLink from './footer/FooterLink.astro';
+import SocialLinks from './footer/SocialLinks.astro';
+import FooterPayments from './footer/FooterPayments.astro';
+---
+<footer class="bg-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="py-16 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <FooterSection title="Contact Us">
+        <address class="not-italic text-gray-400 space-y-2">
+          <p>14 Delta Avenue</p>
+          <p>New Lynn, Auckland</p>
+          <p>New Zealand</p>
+          <div class="mt-4 space-y-1">
+            <p>
+              <a href="tel:0225929525" class="hover:text-white transition-colors duration-200">
+                Mobile: 022 592 9525
+              </a>
+            </p>
+            <p>
+              <a href="tel:096002159" class="hover:text-white transition-colors duration-200">
+                Landline: 09 600 2159
+              </a>
+            </p>
+          </div>
+          <p class="mt-2">
+            <a href="mailto:info@ivanahouseofbeauty.com" class="hover:text-white transition-colors duration-200">
+              info@ivanahouseofbeauty.com
+            </a>
+          </p>
+        </address>
+      </FooterSection>
+
+      <FooterSection title="Opening Hours">
+        <div class="text-gray-400 space-y-2">
+          <p>Open 7 days</p>
+          <p>10:00 AM - 6:00 PM</p>
+          <div class="mt-6">
+            <FooterPayments />
+          </div>
+        </div>
+      </FooterSection>
+
+      <FooterSection title="Quick Links">
+        <nav class="space-y-2">
+          <FooterLink href="#home">Home</FooterLink>
+          <FooterLink href="#services">Services</FooterLink>
+          <FooterLink href="#contact">Contact</FooterLink>
+        </nav>
+      </FooterSection>
+
+      <FooterSection title="Follow Us">
+        <SocialLinks />
+      </FooterSection>
+    </div>
+
+    <div class="border-t border-gray-800 py-8">
+      <p class="text-center text-gray-400 text-sm">
+        © 2024 Ivana House of Beauty. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

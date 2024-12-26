@@ -1,0 +1,14 @@
+---
+import ReviewCard from './ReviewCard.astro';
+import { reviews } from '../data/reviews';
+---
+<section class="py-16 px-4 md:px-6 bg-neutral-lighter">
+  <div class="container mx-auto">
+    <h2 class="text-3xl md:text-4xl font-playfair text-center mb-12">Client Reviews</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {reviews.map(review => (
+        <ReviewCard {...review} />
+      ))}
+    </div>
+  </div>
+</section>

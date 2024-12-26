@@ -1,0 +1,21 @@
+---
+---
+<div class="relative w-full h-screen">
+  <video 
+    autoplay 
+    muted 
+    loop 
+    playsinline 
+    class="absolute top-0 left-0 w-full h-full object-cover"
+    poster="/video-poster.jpg"
+  >
+    <source src="/spa-video.mp4" type="video/mp4">
+  </video>
+  <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+</div>
+
+<style>
+  video {
+    filter: brightness(0.9) contrast(1.1);
+  }
+</style>

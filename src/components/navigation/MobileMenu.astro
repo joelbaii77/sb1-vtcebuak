@@ -1,0 +1,77 @@
+---
+import type { ServiceItem } from '../../types/navigation';
+
+interface Props {
+  services: ServiceItem[];
+}
+
+const { services } = Astro.props;
+---
+<div 
+  id="mobile-menu" 
+  class="fixed inset-0 bg-white transform translate-x-full transition-transform duration-300 z-50 md:hidden"
+>
+  <div class="h-full flex flex-col">
+    <div class="flex justify-between items-center p-6 border-b">
+      <img src="/logo.png" alt="Logo" class="h-8" />
+      <button 
+        id="close-menu" 
+        class="text-neutral hover:text-primary"
+        aria-label="Close menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    
+    <nav class="flex-1 overflow-y-auto p-6">
+      <div class="space-y-4">
+        <a href="#home" class="block text-lg text-neutral hover:text-primary py-2">Home</a>
+        <div class="space-y-2">
+          <p class="text-sm text-neutral-light uppercase tracking-wider">Services</p>
+          {services.map(service => (
+            <a 
+              href={service.href} 
+              class="block text-neutral hover:text-primary py-2 pl-4"
+            >
+              {service.name}
+            </a>
+          ))}
+        </div>
+        <a href="#contact" class="block text-lg text-neutral hover:text-primary py-2">Contact</a>
+      </div>
+    </nav>
+    
+    <div class="p-6 border-t">
+      <a 
+        href="#contact" 
+        class="block w-full bg-primary text-white text-center px-6 py-3 rounded-full hover:bg-primary-hover transition"
+      >
+        Book Now
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const mobileMenu = document.getElementById('mobile-menu');
+  const openButton = document.querySelector('[aria-label="Toggle menu"]');
+  const closeButton = document.getElementById('close-menu');
+
+  function toggleMenu(show: boolean) {
+    if (mobileMenu) {
+      mobileMenu.style.transform = show ? 'translateX(0)' : 'translateX(100%)';
+      document.body.style.overflow = show ? 'hidden' : '';
+    }
+  }
+
+  openButton?.addEventListener('click', () => toggleMenu(true));
+  closeButton?.addEventListener('click', () => toggleMenu(false));
+
+  // Close menu on navigation
+  const menuLinks = mobileMenu?.querySelectorAll('a');
+  menuLinks?.forEach(link => {
+    link.addEventListener('click', () => toggleMenu(false));
+  });
+</script>

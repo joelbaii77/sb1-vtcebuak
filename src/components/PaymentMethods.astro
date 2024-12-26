@@ -1,0 +1,14 @@
+---
+import { paymentMethods } from '../data/payments';
+import PaymentIcon from './payments/PaymentIcon.astro';
+---
+<div class="flex items-center gap-4">
+  <span class="text-sm text-gray-600 dark:text-gray-400">We accept:</span>
+  <div class="flex items-center gap-3">
+    {paymentMethods.map(method => (
+      <div class="flex items-center" title={method.name}>
+        <PaymentIcon method={method.icon} />
+      </div>
+    ))}
+  </div>
+</div>
